@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tables_s",
+  "info": {
+    "name": "table",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "chairs": {
+      "type": "integer"
+    },
+    "restaurant": {
+      "model": "restaurant",
+      "via": "tables"
+    },
+    "bookings": {
+      "via": "tables",
+      "collection": "booking"
+    }
+  }
+}

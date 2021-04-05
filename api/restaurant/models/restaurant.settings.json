@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "name": "restaurant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "rating": {
+      "type": "float",
+      "max": 5,
+      "min": 0
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "openTime": {
+      "type": "time",
+      "required": true,
+      "default": "09:00:00"
+    },
+    "closeTime": {
+      "type": "time",
+      "required": true,
+      "default": "18:00:00"
+    },
+    "totalCapicity": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "address": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string"
+    },
+    "tables": {
+      "via": "restaurant",
+      "collection": "tables"
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
